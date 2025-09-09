@@ -2,7 +2,7 @@
 name = "litellm"
 version = "1.77.0"
 description = "Library to easily interface with LLM API providers"
-authors = ["BerriAI, AndrewDoan"]
+authors = ["BerriAI"]
 license = "MIT"
 readme = "README.md"
 packages = [
