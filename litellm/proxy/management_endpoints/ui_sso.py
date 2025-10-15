@@ -1739,7 +1739,7 @@ class MicrosoftSSOHandler:
         Extract app roles from the Microsoft Entra ID (Azure AD) id_token JWT.
 
         App roles are assigned in the Azure AD Enterprise Application and appear
-        in the 'roles' claim of the id_token.
+        in the 'app_roles' claim of the id_token.
 
         Args:
             id_token (Optional[str]): The JWT id_token from Microsoft SSO
@@ -1758,8 +1758,8 @@ class MicrosoftSSOHandler:
             # (signature is already verified by fastapi_sso)
             decoded_token = jwt.decode(id_token, options={"verify_signature": False})
 
-            # Extract roles claim from the token
-            roles = decoded_token.get("roles", [])
+            # Extract app_roles claim from the token
+            roles = decoded_token.get("app_roles", [])
 
             if roles and isinstance(roles, list):
                 verbose_proxy_logger.debug(
